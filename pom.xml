@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.itqiankun</groupId>
+    <artifactId>spring-cloud-alibaba-demo</artifactId>
+    <version>2.0</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <springboot.version>2.3.12.RELEASE</springboot.version>
+        <springcloud.version>Hoxton.SR12</springcloud.version>
+        <springcloud.alibaba.version>2.2.8.RELEASE</springcloud.alibaba.version>
+        <dubbo.version>3.0.7</dubbo.version>
+        <nacos.client.version>2.1.0</nacos.client.version>
+        <seata.version>1.4.2</seata.version>
+    </properties>
+
+    <modules>
+        <!-- spring cloud alibaba专题-->
+        <module>alibaba-nacos-discovery-server</module><!-- 使用Nacos实现服务注册与发现：服务提供方 -->
+        <module>alibaba-nacos-discovery-client</module><!-- 使用Nacos实现服务注册与发现：服务消费方 -->
+        <module>alibaba-nacos-config-client</module><!-- 使用Nacos实现注册中心：客户端 -->
+        <module>alibaba-dubbo-api</module><!-- Dubbo API定义 -->
+        <module>alibaba-dubbo-client</module><!-- Dubbo 客户端实现 -->
+        <module>alibaba-dubbo-server</module><!-- Dubbo 服务端实现 -->
+        <module>alibaba-sentinel-dubbo-api</module><!-- Sentinel Dubbo API定义 -->
+        <module>alibaba-sentinel-dubbo-client</module><!-- Sentinel Dubbo 服务消费端 -->
+        <module>alibaba-sentinel-dubbo-server</module><!-- Sentinel Dubbo 服务提供端 -->
+        <module>alibaba-sentinel-feign-client</module><!-- Sentinel Feign 服务消费端 -->
+        <module>alibaba-sentinel-feign-server</module><!-- Sentinel Feign 服务提供端 -->
+        <module>alibaba-stream-rocketmq-consumer</module><!-- RocketMQ Stream 消息消费者 -->
+        <module>alibaba-stream-rocketmq-produce</module><!-- RocketMQ Stream 消息生产者 -->
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${springboot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${springcloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${springcloud.alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.nacos</groupId>
+                <artifactId>nacos-client</artifactId>
+                <version>${nacos.client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.itqiankun</groupId>
+                <artifactId>alibaba-dubbo-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.itqiankun</groupId>
+                <artifactId>alibaba-sentinel-dubbo-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>https://maven.aliyun.com/repository/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>https://maven.aliyun.com/repository/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+</project>

@@ -1,0 +1,21 @@
+dubbo:
+  application:
+    # 元数据中心类型 local remote 必须使用 远程
+    metadataType: remote
+    # 注册模式 instance 应用级注册
+    register-mode: instance
+    # 服务发现模式 FORCE_APPLICATION 发现应用
+    service-discovery:
+      migration: FORCE_APPLICATION
+  protocol:
+    # 使用dubbo协议通信
+    name: dubbo
+    # dubbo 协议端口(-1表示自增端口,从20880开始)
+    port: -1
+  registry:
+    address: spring-cloud://localhost
+  scan:
+    # 指定 Dubbo 服务实现类的扫描基准包
+    base-packages: com.alibaba.dubbo.server.service
+server:
+  port: 8000

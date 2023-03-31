@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: alibaba-dubbo-client
+  cloud:
+    # Nacos 服务发现与注册配置
+    nacos:
+      discovery:
+        server-addr: 192.168.1.141:8848
+      config:
+        # 配置中心地址
+        server-addr: 192.168.1.141:8848
+        # 命名空间ID
+        namespace: 21c7d9a6-4b92-4313-b28b-7ba5a9328902
+  config:
+    import:
+      - optional:nacos:${spring.application.name}.yml

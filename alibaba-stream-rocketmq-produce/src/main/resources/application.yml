@@ -1,0 +1,24 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: alibaba-stream-rocketmq-produce
+  cloud:
+    stream:
+      rocketmq:
+        binder:
+          # rocketmq 地址
+          name-server: 192.168.31.165:9876
+        bindings:
+          demo-out-0:
+            producer:
+              # 必须得写
+              group: default
+      bindings:
+        demo-out-0:
+          content-type: application/json
+          # 用来指定topic
+          destination: stream-test-topic
+          # group一定要写
+          group: test-group
+
